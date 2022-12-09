@@ -1,0 +1,36 @@
+.gtg-container {
+  width: 100%;
+  color: #fff;
+  border-collapse: collapse;
+}
+
+.gtg-container thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid #fff;
+}
+
+.gtg-container tbody td {
+  padding: 0.75rem 1rem;
+  color: #ccc;
+  border: 1px solid #fff;
+}
+
+.gtg-container__width-td {
+  height: 20px;
+  background-color: #fff;
+}
+
+.gtg-container tbody td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.gtg-container tbody td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.gtg-container tbody tr:nth-child(even) td {
+  background: #444;
+}

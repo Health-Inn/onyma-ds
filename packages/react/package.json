@@ -1,0 +1,37 @@
+{
+  "name": "@onyma-ds/react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --external react --watch",
+    "test": "jest --passWithNoTests --no-cache --runInBand",
+    "test:watch": "npm run test -- --watch",
+    "test:ci": "npm run test -- --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@onyma-ds/tokens": "*",
+    "@onyma-ds/ts-config": "*",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "@types/styled-components": "^5.1.26",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "react": "^18.2.0",
+    "ts-jest": "^29.0.3",
+    "tsup": "^6.4.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "polished": "^4.2.2",
+    "styled-components": "^5.3.6"
+  }
+}

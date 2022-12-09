@@ -1,0 +1,25 @@
+.cg-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.cg-container__item {
+  border-radius: 4px;
+  padding: 1rem;
+  border: 1px solid #000;
+}
+
+.cg-container__item p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.cg-container__item p.dark {
+  color: #000;
+}
+
+.cg-container__item p.light {
+  color: #fff;
+}
