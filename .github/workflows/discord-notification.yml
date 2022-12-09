@@ -31,6 +31,6 @@ jobs:
         if: ${{ env.REVIEWER_ID }}
         with:
           severity: info
-          text: ":index_pointing_at_the_viewer Você foi o escolhido para revisao a PR ${{ env.REVIEWER_ID }} \n [PR LINK](${{github.event.pull_request.url}})"
+          text: ":index_pointing_at_the_viewer: Você foi o escolhido para revisao a PR ${{ env.REVIEWER_ID }} \n [PR LINK](${{github.event.pull_request.url}})"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           description: " - **Repository** [${{github.repository}}](https://github.com/${{github.repository}}) \n  - **Branch**: ${{github.base_ref}}\n - **Author**: ${{github.event.pull_request.user.login}} \n"
