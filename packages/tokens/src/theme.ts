@@ -3,7 +3,7 @@ import { fonts } from "./fonts";
 import { fontSizes } from "./fontSizes";
 import { fontWeights } from "./fontWeights";
 import { lineHeights } from "./lineHeights";
-import { radii } from "./radii";
+import { borderRadius } from "./borderRadius";
 import { spacings } from "./spacings";
 
 export const theme = {
@@ -12,6 +12,6 @@ export const theme = {
   fontSizes,
   fontWeights,
   lineHeights,
-  radii,
+  borderRadius,
   spacings,
 };
