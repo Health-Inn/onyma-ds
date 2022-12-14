@@ -1,3 +1,3 @@
 export const fonts = {
-  font01: "Roboto, sans-serif",
+  primary: "Roboto, sans-serif",
 };
