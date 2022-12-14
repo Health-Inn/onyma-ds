@@ -1,0 +1,15 @@
+export const spacings = {
+  quark: "0.25rem",
+  nano: "0.5rem",
+  xxxs: "0.75rem",
+  xxs: "1rem",
+  xs: "1.5rem",
+  sm: "2rem",
+  md: "2.5rem",
+  lg: "3rem",
+  xl: "3.5rem",
+  xxl: "4rem",
+  xxxl: "8rem",
+  huge: "12rem",
+  giant: "16rem",
+};
