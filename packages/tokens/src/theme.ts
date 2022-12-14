@@ -5,6 +5,7 @@ import { fontWeights } from "./fontWeights";
 import { lineHeights } from "./lineHeights";
 import { borderRadius } from "./borderRadius";
 import { spacings } from "./spacings";
+import { typographies } from "./typographies";
 
 export const theme = {
   colors,
@@ -14,4 +15,5 @@ export const theme = {
   lineHeights,
   borderRadius,
   spacings,
+  typographies,
 };
