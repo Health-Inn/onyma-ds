@@ -7,3 +7,4 @@ export * from "./lineHeights";
 export * from "./borderRadius";
 export * from "./borderWidth";
 export * from "./spacings";
+export * from "./typographies";
