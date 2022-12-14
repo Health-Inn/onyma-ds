@@ -17,8 +17,8 @@ type ContainerProps = {
 export const Container = styled.button<ContainerProps>`
   font-size: ${theme.fontSizes.md};
   font-weight: ${theme.fontWeights.medium};
-  line-height: ${theme.lineHeights.short};
-  border-radius: ${theme.radii.xs};
+  line-height: ${theme.lineHeights.md};
+  border-radius: ${theme.borderRadius.md};
   border-width: 1px;
   border-style: solid;
   padding: 0.75rem 1.5rem;
@@ -49,9 +49,9 @@ export const Container = styled.button<ContainerProps>`
     }
 
     &:disabled {
-      background-color: ${theme.colors.gray03};
-      border-color: ${theme.colors.gray03};
-      color: ${theme.colors.gray05};
+      background-color: ${theme.colors.gray_90};
+      border-color: ${theme.colors.gray_90};
+      color: ${theme.colors.gray_70};
       cursor: not-allowed;
 
       &:hover,
