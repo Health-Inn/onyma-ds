@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@onyma-ds/tokens": "*",
     "@onyma-ds/ts-config": "*",
     "@testing-library/jest-dom": "^5.16.5",
