@@ -20,10 +20,10 @@ export default {
         type: "boolean",
       },
     },
-    ghost: {
-      control: {
-        type: "boolean",
-      },
+    buttonType: {
+      control: 'select',
+      defaultValue: 'primary',
+      options: ['primary', 'secondary', 'tertiary'],
     },
     onClick: {
       action: "clicked",

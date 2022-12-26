@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { getContrast } from "polished";
+import { darken, getContrast } from "polished";
 import { theme } from "@onyma-ds/tokens";
 
 const hasContrast = (color: string, colorToCompare: string = "#fff") => {
@@ -7,51 +7,99 @@ const hasContrast = (color: string, colorToCompare: string = "#fff") => {
   return contrast < 3.5;
 };
 
+const getButtonColor = (variant: VariantTypes, buttonType: ButtonTypes) => {
+  const contrast = hasContrast(theme.colors[variant]);
+  if (buttonType === "primary") {
+    return contrast ? theme.colors.black : theme.colors.white;
+  }
+
+  return theme.colors[variant];
+};
+
+const hex2Rgba = (hex: string, alpha: number = 1) => {
+  const r = parseInt(hex.substring(1, 3), 16);
+  const g = parseInt(hex.substring(3, 5), 16);
+  const b = parseInt(hex.substring(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+const getDisabledStyles = (buttonType: ButtonTypes) => {
+  switch (buttonType) {
+    case "primary":
+      return css`
+        background-color: ${theme.colors.gray_80};
+        border-color: ${theme.colors.gray_80};
+        color: ${theme.colors.gray_60};
+      `;
+    case "secondary":
+      return css`
+        background-color: transparent;
+        border-color: ${theme.colors.gray_80};
+        color: ${theme.colors.gray_80};
+      `;
+    default:
+      return css`
+        background-color: transparent;
+        border-color: transparent;
+        color: ${theme.colors.gray_80};
+      `;
+  }
+};
+
 export type VariantTypes = keyof typeof theme.colors;
+
+export type ButtonTypes = "primary" | "secondary" | "tertiary";
 
 type ContainerProps = {
   variant: VariantTypes;
-  ghost: boolean;
+  buttonType: ButtonTypes;
 };
 
 export const Container = styled.button<ContainerProps>`
-  font-size: ${theme.fontSizes.md};
-  font-weight: ${theme.fontWeights.medium};
-  line-height: ${theme.lineHeights.md};
-  border-radius: ${theme.borderRadius.md};
-  border-width: 1px;
+  font-size: ${theme.typographies.heading_06.fontSize};
+  font-family: ${theme.typographies.heading_06.fontFamily};
+  font-weight: ${theme.typographies.heading_06.fontWeight};
+  line-height: ${theme.typographies.heading_06.lineHeight};
+  border-radius: ${theme.borderRadius.sm};
+  border-width: ${theme.borderWidth.hairline};
   border-style: solid;
-  padding: 0.75rem 1.5rem;
+  padding: ${theme.spacings.xxxs} ${theme.spacings.xs};
   cursor: pointer;
   transition: 0.3s;
+  position: relative;
 
-  ${({ variant, ghost }) => css`
-    background-color: ${ghost ? "transparent" : theme.colors[variant]};
-    border-color: ${theme.colors[variant]};
-    color: ${ghost
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  ${({ variant, buttonType }) => css`
+    background-color: ${buttonType === "primary"
       ? theme.colors[variant]
-      : hasContrast(theme.colors[variant])
-      ? theme.colors.black
-      : theme.colors.white};
+      : "transparent"};
+    border-color: ${buttonType === "tertiary"
+      ? "transparent"
+      : theme.colors[variant]};
+    color: ${getButtonColor(variant, buttonType)};
 
     &:hover {
-      filter: brightness(0.7);
+      background-color: ${hex2Rgba(theme.colors[variant], 0.7)};
     }
 
     &:focus {
-      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      border-color: ${theme.colors.tertiary};
     }
 
     &:active {
-      filter: brightness(0.5);
+      background-color: ${darken(0.1, theme.colors[variant])};
     }
 
     &:disabled {
-      background-color: ${theme.colors.gray_90};
-      border-color: ${theme.colors.gray_90};
-      color: ${theme.colors.gray_70};
+      ${getDisabledStyles(buttonType)};
       cursor: not-allowed;
 
       &:hover,

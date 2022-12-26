@@ -1,7 +1,7 @@
 import React from "react";
-import { VariantTypes } from "./styles";
+import { ButtonTypes, VariantTypes } from "./styles";
 
 export type ButtonProps = {
   variant?: VariantTypes;
-  ghost?: boolean;
+  buttonType?: ButtonTypes;
 } & React.ComponentPropsWithRef<"button">;
