@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { darken, getContrast } from "polished";
+import { darken, getContrast, lighten } from "polished";
 import { theme } from "@onyma-ds/tokens";
 
 const hasContrast = (color: string, colorToCompare: string = "#fff") => {
@@ -87,7 +87,7 @@ export const Container = styled.button<ContainerProps>`
     color: ${getButtonColor(variant, buttonType)};
 
     &:hover {
-      background-color: ${hex2Rgba(theme.colors[variant], 0.7)};
+      background-color: ${lighten(0.1, hex2Rgba(theme.colors[variant], 0.9))};
     }
 
     &:focus {
