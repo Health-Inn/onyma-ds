@@ -3,6 +3,6 @@ import * as SC from "./styles";
 
 export const Button = ({
   variant = "primary",
-  ghost = false,
+  buttonType = 'primary',
   ...rest
-}: ButtonProps) => <SC.Container variant={variant} ghost={ghost} {...rest} />;
+}: ButtonProps) => <SC.Container variant={variant} buttonType={buttonType} {...rest} />;

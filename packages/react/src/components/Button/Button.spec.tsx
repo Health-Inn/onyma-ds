@@ -2,22 +2,23 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { ReactNode } from "react";
 import { theme } from "@onyma-ds/tokens";
 import { Button } from "./Button";
-import { VariantTypes } from "./styles";
+import { ButtonTypes, VariantTypes } from "./styles";
 
 type SutParams = {
   children?: ReactNode;
   title?: string;
   variant?: VariantTypes;
-  ghost?: boolean;
+  buttonType?: ButtonTypes;
+  disabled?: boolean;
 };
 
 type SutTypes = {
   onClickMock: jest.Mock;
 };
 
-const makeSut = (params: SutParams = {}): SutTypes => {
+const makeSut = ({ ...rest }: SutParams = {}): SutTypes => {
   const onClickMock = jest.fn();
-  render(<Button {...params} onClick={onClickMock} />);
+  render(<Button {...rest} onClick={onClickMock} />);
   return {
     onClickMock,
   };
@@ -52,11 +53,33 @@ describe("<Button />", () => {
     expect(button).toHaveStyle(`color: ${theme.colors.black}`);
   });
 
-  it("should render with variant primary and ghost correctly", () => {
-    makeSut({ title: "Button test", variant: "primary", ghost: true });
+  it("should render the button with correct color with contrast", () => {
+    makeSut({ title: "Button test", variant: "black" });
     const button = screen.getByTitle("Button test");
+    expect(button).toHaveStyle(`color: ${theme.colors.white}`);
+  });
+
+  it("should render the button colors when buttonType is secondary", () => {
+    makeSut({
+      title: "Button test",
+      variant: "secondary",
+      buttonType: "secondary",
+    });
+    const button = screen.getByTitle("Button test");
+    expect(button).toHaveStyle(`color: ${theme.colors.secondary}`);
     expect(button).toHaveStyle("background-color: transparent");
-    expect(button).toHaveStyle(`border-color: ${theme.colors.primary}`);
-    expect(button).toHaveStyle(`color: ${theme.colors.primary}`);
+    expect(button).toHaveStyle(`border-color: ${theme.colors.secondary}`);
+  });
+
+  it("should render the correct disabled button colors when buttonType is tertiary", () => {
+    makeSut({
+      title: "Button test",
+      buttonType: "tertiary",
+      disabled: true,
+    });
+    const button = screen.getByTitle("Button test");
+    expect(button).toHaveStyle(`color: ${theme.colors.gray_80}`);
+    expect(button).toHaveStyle("background-color: transparent");
+    expect(button).toHaveStyle("border-color: transparent");
   });
 });
