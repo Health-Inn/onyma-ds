@@ -1,5 +1,5 @@
 import { colors } from "@onyma-ds/tokens";
-import { replaceUnderlineBy, titleCase } from "../../utils/stringFormat";
+import { replaceUnderlineBy, titleCase } from "../../../utils/stringFormat";
 import { colorCategorization } from "./categorization";
 
 import "./styles.css";

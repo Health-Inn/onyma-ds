@@ -5,7 +5,7 @@ import {
   fontWeights,
   lineHeights,
 } from "@onyma-ds/tokens";
-import { replaceUnderlineBy, titleCase } from "../../utils";
+import { replaceUnderlineBy, titleCase } from "../../../utils";
 
 import * as SC from "./styles";
 

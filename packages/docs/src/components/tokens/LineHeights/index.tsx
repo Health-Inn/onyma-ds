@@ -1,5 +1,5 @@
 import { lineHeights } from "@onyma-ds/tokens";
-import { titleCase } from "../../utils";
+import { titleCase } from "../../../utils";
 import * as SC from "./styles";
 
 export const LineHeights = () => {
