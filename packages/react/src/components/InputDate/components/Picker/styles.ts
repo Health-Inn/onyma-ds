@@ -15,6 +15,7 @@ export const ButtonCleaned = styled.button`
   background-color: transparent;
   border-color: transparent;
   font-size: 1em;
+  cursor: pointer;
 `;
 
 export const Container = styled.div`
@@ -37,6 +38,7 @@ export const Header = styled.section`
 
   h4 {
     color: ${theme.colors.black};
+    margin: 0;
   }
 `;
 
@@ -85,6 +87,7 @@ export const DayButton = styled(ButtonCleaned)<DayButtonProps>`
   border-radius: 50%;
   color: ${theme.colors.white};
   transition: 0.3s;
+
   ${({ available }) =>
     available &&
     css`
